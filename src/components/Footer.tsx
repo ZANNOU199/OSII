@@ -18,10 +18,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </span>
             </div>
             <p className="text-xs text-stone-400 leading-relaxed max-w-sm">
-              L'institution de la street-food raffinée à Godomey. Chawarmas généreusement braisés au charbon de bois d'acacia et dèguè artisanal de mil au lait frais.
+              Chez OSI, nous vous proposons le meilleur chawarma et le meilleur dèguè de Calavi.
             </p>
             <div className="text-xs text-[#FF9238] font-semibold">
-              Godomey PK 10, République du Bénin · Ouvert 7j/7 de 11h à 01h
+              Gbegnigan, République du Bénin · Ouvert 7j/7 de 11h à 01h
             </div>
           </div>
 
@@ -67,9 +67,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </span>
               <span className="px-2.5 py-1 rounded-md bg-stone-800 border border-stone-700 text-stone-300 font-medium">
                 Celtiis Cash
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-stone-800 border border-stone-700 text-stone-300 font-medium">
-                Espèces à la livraison
               </span>
             </div>
           </div>
