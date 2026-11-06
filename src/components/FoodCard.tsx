@@ -102,19 +102,19 @@ export const FoodCard: React.FC<FoodCardProps> = ({
                     onCustomize(item);
                   }}
                   aria-label={`${isInCart ? 'Ajouter au panier' : 'Commander'} ${item.name} — ${formatFCFA(item.price)}`}
-                  className="group/order relative flex h-[52px] w-full cursor-pointer items-center justify-between overflow-hidden rounded-full border border-[#FFB276]/50 bg-gradient-to-r from-[#F16A3C] via-[#D64624] to-[#A92E13] px-6 text-xs font-extrabold text-white shadow-[0_8px_24px_rgba(200,56,24,0.42),inset_0_1px_0_rgba(255,255,255,0.28)] transition-[filter,box-shadow] duration-150 ease-out hover:brightness-110 hover:shadow-[0_12px_30px_rgba(240,106,60,0.55),0_0_0_2px_rgba(255,178,118,0.18),inset_0_1px_0_rgba(255,255,255,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD0A8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A100C] active:brightness-95 sm:text-sm"
+                  className="group/order flex h-[52px] w-full cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-[#FFB276]/50 bg-gradient-to-r from-[#F16A3C] via-[#D64624] to-[#A92E13] px-3 text-xs font-extrabold text-white shadow-[0_8px_24px_rgba(200,56,24,0.42),inset_0_1px_0_rgba(255,255,255,0.28)] transition-[filter,box-shadow] duration-150 ease-out hover:brightness-110 hover:shadow-[0_12px_30px_rgba(240,106,60,0.55),0_0_0_2px_rgba(255,178,118,0.18),inset_0_1px_0_rgba(255,255,255,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD0A8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A100C] active:brightness-95 sm:gap-3 sm:px-6 sm:text-sm"
                 >
-                  <span className="flex items-center">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/25 transition-transform duration-200 group-hover/order:rotate-[-8deg] group-hover/order:scale-105">
+                  <span className="flex shrink-0 items-center">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/25 transition-transform duration-200 group-hover/order:rotate-[-8deg] group-hover/order:scale-105 sm:h-8 sm:w-8">
                       <Plus className="h-4 w-4" />
                     </span>
                   </span>
-                  <span className="order-label absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-base tracking-wide sm:text-lg">
+                  <span className="order-label min-w-0 flex-1 text-center text-xs tracking-normal sm:text-base sm:tracking-wide lg:text-lg">
                     {isInCart ? 'Ajouter au panier' : 'Commander'}
                   </span>
-                  <span className="flex items-center gap-2">
-                    <span className="font-extrabold tnum">{formatFCFA(item.price)}</span>
-                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/order:translate-x-1" />
+                  <span className="flex shrink-0 items-center gap-1 text-[10px] sm:gap-2 sm:text-sm">
+                    <span className="whitespace-nowrap font-extrabold tnum">{formatFCFA(item.price)}</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/order:translate-x-1 sm:h-4 sm:w-4" />
                   </span>
                 </button>
               ) : (
@@ -124,13 +124,13 @@ export const FoodCard: React.FC<FoodCardProps> = ({
                     e.stopPropagation();
                     onQuickAdd(item);
                   }}
-                  className="w-full h-[50px] px-6 rounded-full bg-[#C83818] hover:bg-[#A92E13] active:scale-[0.98] text-white text-xs sm:text-sm font-bold transition-all shadow-xl shadow-[#C83818]/40 flex items-center justify-between cursor-pointer"
+                  className="w-full h-[50px] px-3 sm:px-6 rounded-full bg-[#C83818] hover:bg-[#A92E13] active:scale-[0.98] text-white text-xs sm:text-sm font-bold transition-all shadow-xl shadow-[#C83818]/40 flex items-center justify-between gap-2 cursor-pointer"
                 >
-                  <span className="flex items-center gap-2">
-                    <Plus className="w-4 h-4" />
-                    <span>Ajouter au panier</span>
+                  <span className="flex min-w-0 items-center gap-1.5 sm:gap-2">
+                    <Plus className="w-4 h-4 shrink-0" />
+                    <span className="truncate">Ajouter au panier</span>
                   </span>
-                  <span className="font-extrabold tnum">{formatFCFA(item.price)}</span>
+                  <span className="shrink-0 whitespace-nowrap text-[10px] font-extrabold tnum sm:text-sm">{formatFCFA(item.price)}</span>
                 </button>
               )}
             </div>
