@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-syne: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+  --color-brand-primary: #c83818;
+  --color-brand-primary-dark: #a41f00;
+  --color-brand-secondary: #e07a1f;
+  --color-brand-tertiary: #15803d;
+  --color-brand-charcoal: #1c1917;
+  --color-brand-canvas: #fcf9f5;
+  --color-brand-surface: #ffffff;
+  --color-brand-surface-tonal: #f4efe6;
+  --color-brand-border: #e8dfd1;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #fcf9f5;
+  color: #1e1b19;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-syne, .font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.015em;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes floatA {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-16px) rotate(1deg) scale(1.01);
+  }
+}
+
+@keyframes floatB {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) rotate(-1deg) scale(1.01);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.06);
+  }
+}
+
+.animate-float-a {
+  animation: floatA 5s ease-in-out infinite;
+}
+
+.animate-float-b {
+  animation: floatB 6s ease-in-out infinite 0.7s;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.food-card-scene {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  transform-style: preserve-3d;
+}
+
+.food-card-surface {
+  transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) translateZ(0);
+  transform-style: preserve-3d;
+  transition-duration: 120ms;
+  transition-timing-function: cubic-bezier(0.2, 0.75, 0.25, 1);
+  will-change: transform;
+}
+
+.food-card-glare {
+  background: radial-gradient(
+    circle at var(--pointer-x) var(--pointer-y),
+    rgb(255 224 184 / 38%),
+    rgb(240 120 56 / 13%) 18%,
+    transparent 48%
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 100ms ease-out;
+}
+
+.food-card-scene:hover .food-card-glare {
+  opacity: 1;
+}
+
+.food-card-price,
+.food-card-content {
+  transform: translateZ(34px);
+  transform-style: preserve-3d;
+}
+
+.food-card-price {
+  transition: box-shadow 120ms ease-out, background-color 120ms ease-out;
+}
+
+.food-card-scene:hover .food-card-price {
+  box-shadow: 0 8px 26px rgb(240 120 56 / 35%);
+}
+
+.food-card-aura {
+  transition: opacity 120ms ease-out, filter 120ms ease-out;
+}
+
+@keyframes orderLabelVibrate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.4);
+  }
+  75% {
+    transform: scale(0.96);
+  }
+}
+
+.group\/order:hover .order-label,
+.group\/order:focus-visible .order-label {
+  animation: orderLabelVibrate 650ms ease-in-out infinite;
+}
+
+.food-card-scene:hover .food-card-aura {
+  filter: blur(36px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
