@@ -100,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu, onExploreDegue }) => 
               {/* Main Card with subtle border and warm ambient shadow */}
               <div className="relative rounded-2xl overflow-hidden bg-white border border-[#E8DFD1] shadow-2xl shadow-stone-900/10 transition-transform duration-300 hover:scale-[1.01]">
                 <img
-                  src="/src/assets/images/hero_chawarma_braise_1793866673376.jpg"
+                  src="/images/hero_chawarma_braise_1793866673376.jpg"
                   alt="Chawarma Braisé Authentique Chez Osi à Godomey"
                   className="w-full h-[360px] sm:h-[420px] object-cover"
                   loading="eager"
@@ -132,7 +132,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu, onExploreDegue }) => 
               {/* Decorative floating mini card for Dèguè */}
               <div className="hidden sm:flex items-center gap-3 absolute -bottom-6 -left-6 bg-white p-3 rounded-xl border border-[#E8DFD1] shadow-xl max-w-xs animate-bounce-subtle">
                 <img
-                  src="/src/assets/images/product_degue_artisanal_1793866674623.jpg"
+                  src="/images/product_degue_artisanal_1793866674623.jpg"
                   alt="Dèguè Artisanal Osi"
                   className="w-14 h-14 rounded-lg object-cover shrink-0 border border-[#E8DFD1]"
                 />

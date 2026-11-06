@@ -23,7 +23,7 @@ export const StorySection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-[#E8DFD1] shadow-xl">
             <img
-              src="/src/assets/images/craft_godomey_embers_1793866675169.jpg"
+              src="/images/craft_godomey_embers_1793866675169.jpg"
               alt="Braises incandescentes et grillades Chez Osi à Godomey"
               className="w-full h-80 sm:h-96 object-cover"
               loading="lazy"
@@ -101,7 +101,7 @@ export const StorySection: React.FC = () => {
 
           <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-[#E8DFD1] shadow-xl order-1 lg:order-2">
             <img
-              src="/src/assets/images/product_degue_artisanal_1793866674623.jpg"
+              src="/images/product_degue_artisanal_1793866674623.jpg"
               alt="Dèguè Artisanal au yaourt et mil Chez Osi"
               className="w-full h-80 sm:h-96 object-cover"
               loading="lazy"
