@@ -1,6 +1,6 @@
 {
   "name": "Chez Osi Gourmet Béninois",
-  "description": "Gastronomie de rue raffinée à Godomey, Bénin. Chawarmas généreusement braisés au feu de bois et Dèguè artisanal onctueux.",
+  "description": "Nous proposons les meilleurs chawarmas et dèguè de Calavi.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
