@@ -491,7 +491,6 @@ export const AdminDashboard: React.FC = () => {
               <LockKeyhole className="h-4 w-4" />
               {isAuthenticating ? 'Vérification…' : 'Accéder à l’administration'}
             </button>
-            <p className="text-center text-xs text-stone-500">Compte de démonstration temporaire. Les identifiants sont intégrés au frontend.</p>
           </form>
         </section>
       </main>

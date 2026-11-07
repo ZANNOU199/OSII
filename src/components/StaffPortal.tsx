@@ -523,7 +523,6 @@ export const StaffPortal: React.FC<StaffPortalProps> = ({ requiredRole }) => {
             <label className="block text-sm font-bold">Mot de passe<span className="relative mt-1.5 block"><input required type={showPassword ? 'text' : 'password'} autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value)} className={`${inputClass} pr-12`} /><button type="button" onClick={() => setShowPassword((visible) => !visible)} aria-label={showPassword ? 'Masquer le mot de passe' : 'Afficher le mot de passe'} aria-pressed={showPassword} className="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-stone-500 hover:text-stone-800">{showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}</button></span></label>
             {authError && <p role="alert" className="rounded-xl bg-rose-50 px-3 py-2 text-sm font-semibold text-rose-700">{authError}</p>}
             <button type="submit" disabled={isLoading} className={`${buttonClass} w-full`}>{isLoading ? 'Connexion…' : 'Se connecter'}</button>
-            <p className="text-center text-xs text-stone-500">Compte de démonstration temporaire. Les identifiants sont intégrés au frontend ; les commandes restent locales à cet appareil.</p>
           </form>
         </section>
       </main>
