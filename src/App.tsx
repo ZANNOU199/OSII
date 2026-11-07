@@ -26,6 +26,17 @@ interface PendingPaymentDraft {
   total: number;
 }
 
+const saveOrderToHistory = (order: Order) => {
+  try {
+    const savedOrders = localStorage.getItem('chez_osi_orders');
+    const orders = savedOrders ? JSON.parse(savedOrders) as Order[] : [];
+    const nextOrders = orders.filter((savedOrder) => savedOrder.id !== order.id);
+    localStorage.setItem('chez_osi_orders', JSON.stringify([order, ...nextOrders]));
+  } catch (error) {
+    console.error('Unable to save order history locally:', error);
+  }
+};
+
 export default function App() {
   const [cart, setCart] = useState<CartItem[]>(() => {
     try {
@@ -85,6 +96,19 @@ export default function App() {
       // ignore
     }
   }, [currentOrder]);
+
+  useEffect(() => {
+    const syncActiveOrder = (event: StorageEvent) => {
+      if (event.key !== 'chez_osi_active_order') return;
+      try {
+        setCurrentOrder(event.newValue ? JSON.parse(event.newValue) as Order : null);
+      } catch (error) {
+        console.error('Unable to sync active order from local storage:', error);
+      }
+    };
+    window.addEventListener('storage', syncActiveOrder);
+    return () => window.removeEventListener('storage', syncActiveOrder);
+  }, []);
 
   const showToast = (message: string) => {
     setToastMessage(message);
@@ -150,6 +174,7 @@ export default function App() {
   };
 
   const handleOrderCreated = (order: Order) => {
+    saveOrderToHistory(order);
     setCurrentOrder(order);
     setCart([]);
     setIsCartOpen(false);
@@ -211,6 +236,7 @@ export default function App() {
           id: `#OSI-${draft.transactionId}`,
           status: 'received',
           createdAt: new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }),
+          createdAtIso: new Date().toISOString(),
           estimatedDeliveryTime: '30-40 min',
           customer: {
             ...draft.customer,
@@ -220,13 +246,9 @@ export default function App() {
           subtotal: draft.subtotal,
           deliveryFee: draft.deliveryFee,
           total: draft.total,
-          driver: draft.customer.deliveryType === 'delivery' ? {
-            name: 'Koffi Dossou',
-            phone: '+229 97 45 12 88',
-            vehicle: 'Moto Express Haojue Rouge',
-            plateNumber: 'BC 4821 RB (Godomey)',
-            avatar: '🛵'
-          } : undefined
+          paymentStatus: 'paid',
+          paymentReceivedAt: new Date().toISOString(),
+          driver: undefined
         });
       } catch (error) {
         setToastMessage(error instanceof Error
@@ -249,6 +271,7 @@ export default function App() {
       ...currentOrder,
       status: nextStatus
     };
+    saveOrderToHistory(updated);
     setCurrentOrder(updated);
 
     const labels: Record<OrderStatus, string> = {

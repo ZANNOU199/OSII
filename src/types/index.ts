@@ -47,6 +47,12 @@ export interface Order {
   id: string;
   status: OrderStatus;
   createdAt: string;
+  createdAtIso?: string;
+  createdBy?: string;
+  createdById?: string;
+  courierId?: string;
+  paymentStatus?: 'pending' | 'paid';
+  paymentReceivedAt?: string;
   estimatedDeliveryTime: string;
   customer: {
     fullName: string;
